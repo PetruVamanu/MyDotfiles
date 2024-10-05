@@ -17,12 +17,15 @@ if [ -f "$TMUX_CONF" ]; then
 fi
 
 echo "Installing tmux config..."
-ln -sf "$INSTALL_DIR/tmux/.tmux.conf" "$TMUX_CONF"
+ln -sf "$INSTALL_DIR/.tmux.conf" "$TMUX_CONF"
 
 # Install nvim config
 if [ -d "$NVIM_CONFIG_DIR" ]; then
   echo "Backing up existing nvim config to $BACKUP_DIR/nvim"
   mv "$NVIM_CONFIG_DIR" "$BACKUP_DIR/nvim"  # Move the existing config to backup
+  echo "Removing existing Neovim state and share directories..."
+  rm -rf ~/.local/state/nvim
+  rm -rf ~/.local/share/nvim
 fi
 
 echo "Installing nvim config..."
