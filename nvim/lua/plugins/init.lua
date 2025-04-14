@@ -1,42 +1,24 @@
 return {
-  {
-    "stevearc/conform.nvim",
-    -- event = 'BufWritePre', -- uncomment for format on save
-    opts = require "configs.conform",
-  },
+  'tpope/vim-sleuth', -- Detect tabstop and shiftwidth automatically
 
-  -- These are some examples, uncomment them if you want to see them work!
-  {
-    "neovim/nvim-lspconfig",
-    config = function()
-      require "configs.lspconfig"
-    end,
-  },
-  {
-    "christoomey/vim-tmux-navigator",
-    cmd = {
-      "TmuxNavigateLeft",
-      "TmuxNavigateDown",
-      "TmuxNavigateUp",
-      "TmuxNavigateRight",
-      "TmuxNavigatePrevious",
-    },
-    keys = {
-      { "<c-h>", "<cmd><C-U>TmuxNavigateLeft<cr>" },
-      { "<c-j>", "<cmd><C-U>TmuxNavigateDown<cr>" },
-      { "<c-k>", "<cmd><C-U>TmuxNavigateUp<cr>" },
-      { "<c-l>", "<cmd><C-U>TmuxNavigateRight<cr>" },
-      { "<c-\\>", "<cmd><C-U>TmuxNavigatePrevious<cr>" },
-    }
-  },
-  {
-  	"nvim-treesitter/nvim-treesitter",
-  	opts = {
-  		ensure_installed = {
-  			"vim", "lua", "vimdoc",
-       "html", "css", "cpp", "python"
-  		},
-  	},
-    view = { adaptive_size = true },
-  },
+  require 'plugins.gitsigns',
+  require 'plugins.which-key',
+  require 'plugins.nvim-tree',
+  require 'plugins.barbar',
+  require 'plugins.telescope',
+  require 'plugins.lazydev',
+  -- LSP Plugins
+  require 'plugins.lspconfig',
+
+  require 'plugins.conform',
+  require 'plugins.blink',
+  require 'plugins.tokyonight',
+
+  require 'plugins.catppuccin',
+  -- Highlight todo, notes, etc in comments
+  require 'plugins.todo-comments',
+  require 'plugins.mini',
+
+  require 'plugins.treesitter',
+  require 'plugins.toggleterm',
 }
